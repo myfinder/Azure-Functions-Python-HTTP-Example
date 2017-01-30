@@ -16,7 +16,8 @@ http = HTTPHelper()
 
 # All these print statements get sent to the Azure Functions live log
 print "--- ENV ---"
-print os.environ['REQ']
+postData = open(os.environ['req'], "r").read()
+print postData
 
 print "--- GET ---"
 print http.get
