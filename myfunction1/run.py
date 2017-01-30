@@ -11,13 +11,18 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 
 import json
 from AzureHTTPHelper import HTTPHelper
 
+import urlparse
+
 # This is a little class used to abstract away some basic HTTP functionality
 http = HTTPHelper()
 
 # All these print statements get sent to the Azure Functions live log
-print "--- ENV ---"
+print "--- POST_FROM_ENV ---"
 postData = open(os.environ['req'], "r").read()
+postDataParsed = urlparse.parse_qs(postData)
 print postData
+print "--- POST_DATA_PARSED ---"
+print postDataParsed
 
 print "--- GET ---"
 print http.get
