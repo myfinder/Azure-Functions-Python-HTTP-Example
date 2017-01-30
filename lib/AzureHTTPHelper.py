@@ -40,6 +40,6 @@ class HTTPHelper(object):
     
     @property
     def post(self):
-        postData = open(os.environ['req'], "r").read()
+        postData = open(os.environ['REQ'], "r").read()
         postDataParsed = urlparse.parse_qs(postData)
         return postDataParsed
